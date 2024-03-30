@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    image: mongo:latest
+    restart: unless-stopped
+    volumes:
+      - mongologs_data:/var/lib/mongo/data
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE_NAME}
+    ports:
+      - 27017:27017
+
+volumes:
+  mongologs_data:
