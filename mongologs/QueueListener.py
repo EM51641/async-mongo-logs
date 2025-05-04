@@ -95,7 +95,6 @@ class AsyncQueueListener:
         """
         while True:
             record = self.dequeue(block=True)
-            print(record)
             await self._save_log_to_db(record)
 
     async def _save_log_to_db(self, record: Any) -> None:
